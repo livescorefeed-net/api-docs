@@ -8,7 +8,7 @@ In order to get our livescore data you need to build a corresponding URL with GE
 
 ## General API Information
 
-* The base URL is: **http://xml1.livescorefeed.net/data/data.php**
+* The base URL is: **https://livescorefeedxml.com/data/**
 * All pages return either a JSON object or XML.
 * In order to use the API you need to have permanent redirect 301 enabled in the function you are using for getting the XMLs from our server.
 
@@ -55,31 +55,31 @@ Name | Description | Mandatory | Possible values
 * Get all games for today in XML format
 
 ```
-http://xml1.livescorefeed.net/data/data.php?key=YOUR_KEY&games=all
+https://livescorefeedxml.com/data/?key=YOUR_KEY&games=all
 ```
 
 * Get all games for today in JSON format
 
 ```
-http://xml1.livescorefeed.net/data/data.php?key=YOUR_KEY&games=all&format=json
+https://livescorefeedxml.com/data/?key=YOUR_KEY&games=all&format=json
 ```
 
 * Get all games for a specific date
 
 ```
-http://xml1.livescorefeed.net/data/data.php?key=YOUR_KEY&games=all&date=YYYY-MM-DD
+https://livescorefeedxml.com/data/?key=YOUR_KEY&games=all&date=YYYY-MM-DD
 ```
 
 * Get all games for a specific date and include standings tables, eventinfo and livestats
 
 ```
-http://xml1.livescorefeed.net/data/data.php?key=YOUR_KEY&games=all&date=YYYY-MM-DD&standings=true&eventinfo=true&livestats=true
+https://livescorefeedxml.com/data/?key=YOUR_KEY&games=all&date=YYYY-MM-DD&standings=true&eventinfo=true&livestats=true
 ```
 
 * Get head to head stats for specific game
 
 ```
-http://xml1.livescorefeed.net/data/data.php?key=YOUR_KEY&h2h=GAME_ID
+https://livescorefeedxml.com/data/?key=YOUR_KEY&h2h=GAME_ID
 ```
 
 ### Returned data structure
