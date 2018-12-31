@@ -2,9 +2,9 @@
 
 Official docs of the live sport data XML API of LivescoreFeed.net
 
-## Building URLs with custom GET parameters
+## Building URLs custom parameters
 
-In order to get our livescore data you need to build a corresponding URL with GET parameters, specifying what data to be retrieved. 
+In order to get our livescore data you need to build a URL with certain parameters, specifying what data to be retrieved. 
 
 ## General API Information
 
@@ -20,7 +20,7 @@ If you are using PHP, this means that you should one of the following:
 file_get_contents($url);
 ```
 
-* use curl with CURLOPT_FOLLOWLOCATION enabled:
+* Use curl with CURLOPT_FOLLOWLOCATION enabled:
 ```
 $curl = curl_init();
 curl_setopt($curl, CURLOPT_FOLLOWLOCATION, 1);
@@ -51,7 +51,7 @@ The table below describes the different type of parameters you can send to the A
 
 **Parameters:**
 
-Name | Description | Mandatory | Possible values | Applicable sports
+Name | Description | Mandatory | Accepted values | Applicable sports
 ------------ | ------------ | ------------ | ------------ |  ------------ 
 **key** | Your license key | yes | valid API key | all
 **date** | Date restriction for the feed. If you specify this parameter you will get games only for the selected date. If you don’t specify this parameter, you will see all games for today. | no | date in YYYY-MM-DD format | all
@@ -425,7 +425,7 @@ If the hash is the same as the one in your database, there is no need to update 
 
 ### Time zones
 
-The table below shows the possible values of the timezone_id parameter.
+The table below shows the possible values of the ```timezone_id``` parameter.
 
 **Timezone ids:**
 
