@@ -8,7 +8,7 @@ In order to get our livescore data you need to build a corresponding URL with GE
 
 ## General API Information
 
-* The base URL is: **https://livescorefeedxml.com/data/**
+* The base URL is: **https://livescorefeedxml.com/api/**
 * All pages return either a JSON object or XML.
 * In order to use the API you need to have permanent redirect 301 enabled in the function you are using for getting the XMLs from our server.
 
@@ -28,67 +28,92 @@ curl_exec($curl);
 ```
 
  
-## GET parameters
+## Parameters
+
+All parameters are sent via ```GET``` method to the base URL of the corresponding sport.
+The URL of the sport is the base URL specified above + the sport name:
+
+```https://livescorefeedxml.com/api/SPORT_NAME```
+
+The SPORT_NAME has the following possible values:
+
+```soccer```
+```basketball```
+```baseball```
+```am_football```
+```hockey```
+```tennis```
+```handball```
+
+
 
 The table below describes the different type of parameters you can send to the API.
 
 **Parameters:**
 
-Name | Description | Mandatory | Possible values
------------- | ------------ | ------------ | ------------
-**key** | Your license key | yes | valid API key
-**date** | Date restriction for the feed. If you specify this parameter you will get games only for the selected date. If you don’t specify this parameter, you will see all games for today. | no | date in YYYY-MM-DD format
-**country_id** | Can be used in combination with the date parameter. If specified, filters the sport events by specific country. | no | any valid country id (You can request the list of countries over email)
-**timezone_id** | Modifies the start hours of the games. If not defined, the feeds are displayed by default in the UTC/GMT +2 hours timezone. | no | any valid timezone id (You can find the list of timezone ids below)
-**games** | If set to ```all``` displays all games for the specified period. If set to ```livescores``` or ```fixtures``` returns only livescore (games updated live) or only fixtures (games updated only with final result) | yes, unless **h2h** param is specified |  ```all``` , ```livescores```, ```fixtures``` 
-**standings** | If set to ```true```, standing tables are included in the feed. | no | ```true```, ```false```
-**eventinfo** | If set to ```true```, event data - goals, cards, substitutions, etc... are included in the feed. | no | ```true```, ```false```
-**lineups** | If set to ```true```, lineups are included in the feed. | no | ```true```, ```false```
-**livestats** | If set to ```true```, livestats and live commentaries are included in the feed. | no | ```true```, ```false```
-**h2h** |	Shows head 2 head statistics between the two teams for a specified game. | no | any valid game id
-**format** |	Specifies the format in which the feeds to be represented – JSON or XML. If not defined, by default the feeds are represented in a XML format. | no | ```xml```, ```json```
+Name | Description | Mandatory | Possible values | Applicable sports
+------------ | ------------ | ------------ | ------------ |  ------------ 
+**key** | Your license key | yes | valid API key | all
+**date** | Date restriction for the feed. If you specify this parameter you will get games only for the selected date. If you don’t specify this parameter, you will see all games for today. | no | date in YYYY-MM-DD format | all
+**country_id** | Can be used in combination with the date parameter. If specified, filters the sport events by specific country. | no | any valid country id (You can request the list of countries over email) | all
+**timezone_id** | Modifies the start hours of the games. If not defined, the feeds are displayed by default in the UTC/GMT +2 hours timezone. | no | any valid timezone id (You can find the list of timezone ids below) | all
+**games** | If set to ```all``` displays all games for the specified period. If set to ```livescores``` or ```fixtures``` returns only livescore (games updated live) or only fixtures (games updated only with final result) | yes, unless **h2h** param is specified |  ```all``` , ```livescores```, ```fixtures```  | all
+**standings** | If set to ```true```, standing tables are included in the feed. | no | ```true```, ```false``` | ```soccer```, ```basketball```, ```baseball```, ```am_football```, ```hockey```, ```handball```
+**eventinfo** | If set to ```true```, event data - goals, cards, substitutions, etc... are included in the feed. | no | ```true```, ```false``` | ```soccer```,  ```hockey```
+**lineups** | If set to ```true```, lineups are included in the feed. | no | ```true```, ```false``` | ```soccer```
+**livestats** | If set to ```true```, livestats and live commentaries are included in the feed. | no | ```true```, ```false``` | ```soccer```
+**h2h** |	Shows head 2 head statistics between the two teams for a specified game. | no | any valid game id | ```soccer```, ```basketball```, ```baseball```, ```am_football```, ```hockey```, ```handball```
+**format** |	Specifies the format in which the feeds to be represented – JSON or XML. If not defined, by default the feeds are represented in a XML format. | no | ```xml```, ```json``` | all
+**language** |	Returns the names of the teams and tournament in the specified language, if translation is availble. If there is not available translation for the particular entity, it is returned in english | no | ```en``` (English), ```fr``` (French), ```es``` (Spain), ```de``` (German), ```ru``` (Russian) | ```soccer```
 
 
 ## Examples
 
 
-* Get all games for today in XML format
+* Get all soccer games for today in XML format
 
 ```
-https://livescorefeedxml.com/data/?key=YOUR_KEY&games=all
+https://livescorefeedxml.com/api/soccer?key=YOUR_KEY&games=all
 ```
 
 * Get all games for today in JSON format
 
 ```
-https://livescorefeedxml.com/data/?key=YOUR_KEY&games=all&format=json
+https://livescorefeedxml.com/api/soccer?key=YOUR_KEY&games=all&format=json
 ```
 
 * Get all games for a specific date
 
 ```
-https://livescorefeedxml.com/data/?key=YOUR_KEY&games=all&date=YYYY-MM-DD
+https://livescorefeedxml.com/api/soccer?key=YOUR_KEY&games=all&date=YYYY-MM-DD
 ```
 
 * Get all games for a specific date and include standings tables, eventinfo and livestats
 
 ```
-https://livescorefeedxml.com/data/?key=YOUR_KEY&games=all&date=YYYY-MM-DD&standings=true&eventinfo=true&livestats=true
+https://livescorefeedxml.com/api/soccer?key=YOUR_KEY&games=all&date=YYYY-MM-DD&standings=true&eventinfo=true&livestats=true
 ```
 
 * Get head to head stats for specific game
 
 ```
-https://livescorefeedxml.com/data/?key=YOUR_KEY&h2h=GAME_ID
+https://livescorefeedxml.com/api/soccer?key=YOUR_KEY&h2h=GAME_ID
 ```
 
-### Returned data structure
+
+* Get all tennis game for today
+
+```
+https://livescorefeedxml.com/api/tennis?key=YOUR_KEY
+```
+
+## Returned data structure
 
 
 
-The retrieved data has the same structure both in JSON and XML format.
+The retrieved data has the same structure hierarchy both in JSON and XML format.
 
-The main data is received in the following structure:
+Example of the main data structure for soccer:
 
 ```
 {
