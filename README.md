@@ -94,7 +94,7 @@ https://livescorefeedxml.com/api/soccer?key=YOUR_KEY&games=all&date=YYYY-MM-DD
 https://livescorefeedxml.com/api/soccer?key=YOUR_KEY&games=all&date=YYYY-MM-DD&standings=true&eventinfo=true&livestats=true
 ```
 
-* Get head to head stats for specific game
+* Get head to head stats for a specific game
 
 ```
 https://livescorefeedxml.com/api/soccer?key=YOUR_KEY&h2h=GAME_ID
