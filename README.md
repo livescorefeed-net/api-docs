@@ -1,6 +1,6 @@
-# LivescoreFeed.net XML API docs
+# LivescoreFeed.net API docs
 
-Official docs of the live sport data XML API of LivescoreFeed.net
+Official docs of the live sport data API of LivescoreFeed.net
 
 ## Building URLs custom parameters
 
