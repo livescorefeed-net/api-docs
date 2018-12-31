@@ -40,7 +40,7 @@ The SPORT_NAME has the following possible values:
 ```soccer```
 ```basketball```
 ```baseball```
-```am_football```
+```amfootball```
 ```hockey```
 ```tennis```
 ```handball```
@@ -56,13 +56,13 @@ Name | Description | Mandatory | Possible values | Applicable sports
 **key** | Your license key | yes | valid API key | all
 **date** | Date restriction for the feed. If you specify this parameter you will get games only for the selected date. If you don’t specify this parameter, you will see all games for today. | no | date in YYYY-MM-DD format | all
 **country_id** | Can be used in combination with the date parameter. If specified, filters the sport events by specific country. | no | any valid country id (You can request the list of countries over email) | all
-**timezone_id** | Modifies the start hours of the games. If not defined, the feeds are displayed by default in the UTC/GMT +2 hours timezone. | no | any valid timezone id (You can find the list of timezone ids below) | all
+**timezone_id** | Modifies the start hours of the games. If not defined, the feeds are displayed by default in the UTC/GMT +2 hours timezone. | no | any valid timezone id (You can find the list of timezone ids at the bottom of the page) | all
 **games** | If set to ```all``` displays all games for the specified period. If set to ```livescores``` or ```fixtures``` returns only livescore (games updated live) or only fixtures (games updated only with final result) | yes, unless **h2h** param is specified |  ```all``` , ```livescores```, ```fixtures```  | all
-**standings** | If set to ```true```, standing tables are included in the feed. | no | ```true```, ```false``` | ```soccer```, ```basketball```, ```baseball```, ```am_football```, ```hockey```, ```handball```
+**standings** | If set to ```true```, standing tables are included in the feed. | no | ```true```, ```false``` | ```soccer```, ```basketball```, ```baseball```, ```amfootball```, ```hockey```, ```handball```
 **eventinfo** | If set to ```true```, event data - goals, cards, substitutions, etc... are included in the feed. | no | ```true```, ```false``` | ```soccer```,  ```hockey```
 **lineups** | If set to ```true```, lineups are included in the feed. | no | ```true```, ```false``` | ```soccer```
 **livestats** | If set to ```true```, livestats and live commentaries are included in the feed. | no | ```true```, ```false``` | ```soccer```
-**h2h** |	Shows head 2 head statistics between the two teams for a specified game. | no | any valid game id | ```soccer```, ```basketball```, ```baseball```, ```am_football```, ```hockey```, ```handball```
+**h2h** |	Shows head 2 head statistics between the two teams for a specified game. | no | any valid game id | ```soccer```, ```basketball```, ```baseball```, ```amfootball```, ```hockey```, ```handball```
 **format** |	Specifies the format in which the feeds to be represented – JSON or XML. If not defined, by default the feeds are represented in a XML format. | no | ```xml```, ```json``` | all
 **language** |	Returns the names of the teams and tournament in the specified language, if translation is availble. If there is not available translation for the particular entity, it is returned in english | no | ```en``` (English), ```fr``` (French), ```es``` (Spain), ```de``` (German), ```ru``` (Russian) | ```soccer```
 
@@ -113,7 +113,10 @@ https://livescorefeedxml.com/api/tennis?key=YOUR_KEY
 
 The retrieved data has the same structure hierarchy both in JSON and XML format.
 
-Example of the main data structure for soccer:
+
+The main data structure returned in JSON is as follows:
+
+#### Soccer
 
 ```
 {
@@ -152,10 +155,273 @@ Example of the main data structure for soccer:
                 "hash": "892bd615d90969f8603748b105666dcbe00af5da" // hash of the last updated data
             }, ...
             ]
+        }
+    }
+}
 ```
 
 The ```hash``` value helps you track if the specific game have any updated fields since the last API call.
 If the hash is the same as the one in your database, there is no need to update your database again.
+
+#### Basketball
+
+```
+{
+    "maininfo": {
+        "3213178": {
+            "tournament_id": 3101009,
+            "season": "2014\/2015",
+            "country_id": "20",
+            "champ_id": "3213178",
+            "champname": "NCAAB",
+            "country": "USA",
+            "games": [{
+                "id": "1314001216",
+                "status_type": "finished",
+                "home_q1": "44",
+                "home_q2": "29",
+                "home_q3": "0",
+                "home_q4": "0",
+                "home_et": "0",
+                "home_total": "73",
+                "away_q1": "28",
+                "away_q2": "30",
+                "away_q3": "0",
+                "away_q4": "0",
+                "away_et": "0",
+                "away_total": "58",
+                "last_timestamp": "2014-10-31 10:13:04",
+                "date": "2014-10-31",
+                "hour": "01:00",
+                "host": "Northern Kentucky Norse",
+                "host_id": "165005",
+                "guest": "Illinois-Chicago Flames",
+                "guest_id": "164404",
+                "status_desc": "Finished"
+                }, ...
+            ]
+        }
+    }
+}
+```
+
+
+#### Baseball
+
+```
+{
+    "maininfo": {
+        "5289900404": {
+            "tournament_id": 3101058021,
+            "season": "2016",
+            "country_id": "20",
+            "champ_id": "5289900404",
+            "champname": "MLB",
+            "country": "USA",
+            "games": [{
+                        "id": "122160782",
+                        "status_type": "finished",
+                        "home_p1": "1",
+                        "home_p2": "0",
+                        "home_p3": "0",
+                        "home_ei": "0",
+                        "home_h": "6",
+                        "home_total": "6",
+                        "away_p1": "0",
+                        "away_p2": "0",
+                        "away_p3": "0",
+                        "away_ei": "0",
+                        "away_h": "4",
+                        "away_total": "0",
+                        "home_e": "0",
+                        "away_e": "3",
+                        "home_p4": "0",
+                        "home_p5": "0",
+                        "home_p6": "0",
+                        "home_p7": "5",
+                        "home_p8": "0",
+                        "home_p9": "x",
+                        "away_p4": "0",
+                        "away_p5": "0",
+                        "away_p6": "0",
+                        "away_p7": "0",
+                        "away_p8": "0",
+                        "away_p9": "0",
+                        "date": "2016-03-19",
+                        "hour": "19:05",
+                        "host": "Atlanta Braves",
+                        "host_id": "166011",
+                        "guest": "Toronto Blue Jays",
+                        "guest_id": "166246",
+                        "status_desc": "Finished"
+                    }, ...
+            ]
+        }
+    }
+}
+```
+
+#### American Football
+
+```
+{
+    "maininfo": {
+        "8206215": {
+            "tournament_id": 9101004,
+            "season": "2012\/2013",
+            "country_id": "20",
+            "champ_id": "8206215",
+            "champname": "NFL",
+            "country": "USA",
+            "games": [{
+                "id": "12413209",
+                "status_type": "finished",
+                "home_q1": "3",
+                "home_q2": "11",
+                "home_q3": "0",
+                "home_q4": "11",
+                "home_et": "0",
+                "home_total": "25",
+                "away_q1": "0",
+                "away_q2": "0",
+                "away_q3": "3",
+                "away_q4": "17",
+                "away_et": "0",
+                "away_total": "20",
+                "last_timestamp": "2012-11-23 10:07:03",
+                "date": "2012-11-19",
+                "hour": "03:20",
+                "host": "Chicago",
+                "host_id": "165585",
+                "guest": "Minnesota",
+                "guest_id": "165586",
+                "status_desc": "Finished"
+            }, ...
+            ]
+        }
+    }
+}
+```
+
+
+
+#### Ice hockey
+
+```
+{
+    "maininfo": {
+         "3210073": {
+            "tournament_id": 3100398,
+            "season": "2016\/2017",
+            "country_id": "20",
+            "champ_id": "3210073",
+            "champname": "NHL",
+            "country": "USA",
+            "games": [{
+                "id": "125247733",
+                "status_type": "finished",
+                "home_p1": "2",
+                "home_p2": "0",
+                "home_p3": "1",
+                "home_p": "0",
+                "home_ot": "0",
+                "home_total": "3",
+                "away_p1": "0",
+                "away_p2": "1",
+                "away_p3": "0",
+                "away_p": "0",
+                "away_ot": "0",
+                "away_total": "1",
+                "date": "2016-11-19",
+                "hour": "01:00",
+                "host": "Chicago",
+                "host_id": "1659",
+                "guest": "Minnesota",
+                "guest_id": "1712",
+                "status_desc": "Finished"
+            }, ...
+            ]
+        }
+    }
+}
+```
+
+
+#### Tennis
+
+```
+{
+    "maininfo": {
+         "37810073": {
+            "tournament_id": 310039098,
+            "season": "2010\/2011",
+            "country_id": "20",
+            "champ_id": "37810073",
+            "champname": "NHL",
+            "country": "USA",
+            "games": [{
+                "id": "19252470733",
+                "status_type": "finished",
+                "home_p1": "2",
+                "home_p2": "0",
+                "home_p3": "1",
+                "home_p": "0",
+                "home_ot": "0",
+                "home_total": "3",
+                "away_p1": "0",
+                "away_p2": "1",
+                "away_p3": "0",
+                "away_p": "0",
+                "away_ot": "0",
+                "away_total": "1",
+                "date": "2011-11-19",
+                "hour": "01:00",
+                "host": "Chicago",
+                "host_id": "1659",
+                "guest": "Minnesota",
+                "guest_id": "1712",
+                "status_desc": "Finished"
+            }, ...
+            ]
+        }
+    }
+}
+```
+
+
+#### Handball
+
+```
+{
+    "maininfo": {
+        "3710854": {
+            "tournament_id": 3909927,
+            "season": "2015\/2016",
+            "country_id": "727",
+            "champ_id": "3710854",
+            "champname": "Bundesliga",
+            "country": "Germany",
+            "games": [{
+                "id": "136620433",
+                "status_type": "finished",
+                "home_score": "27",
+                "away_score": "20",
+                "half_time__home_score": "14",
+                "half_time__away_score": "14",
+                "last_timestamp": "2015-11-23 10:34:14",
+                "date": "2015-11-19",
+                "hour": "19:30",
+                "host": "Flensburg",
+                "host_id": "148766",
+                "guest": "Rhein-Neckar Lowen",
+                "guest_id": "147773",
+                "status_desc": "Finished"
+            }, ...
+            ]
+        }
+    }
+}
+```
 
 ### Time zones
 
