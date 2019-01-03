@@ -64,7 +64,7 @@ Name | Description | Mandatory | Accepted values | Applicable sports
 **livestats** | If set to ```true```, livestats and live commentaries are included in the feed. | no | ```true```, ```false``` | ```soccer```
 **h2h** |	Shows head 2 head statistics between the two teams for a specified game. | no | any valid game id | ```soccer```, ```basketball```, ```baseball```, ```amfootball```, ```hockey```, ```handball```
 **format** |	Specifies the format in which the feeds to be represented – JSON or XML. If not defined, by default the feeds are represented in a XML format. | no | ```xml```, ```json``` | all
-**language** |	Returns the names of the teams and tournament in the specified language, if translation is availble. If there is not available translation for the particular entity, it is returned in english | no | ```en``` (English), ```fr``` (French), ```es``` (Spain), ```de``` (German), ```ru``` (Russian) | ```soccer```
+**language** |	Returns the names of the teams and tournament in the specified language, if translation is availble. If there is not available translation for the particular entity, it is returned in english | no | ```en``` (English), ```fr``` (French), ```es``` (Spanish), ```de``` (German), ```ru``` (Russian) | ```soccer```
 
 
 ## Examples
