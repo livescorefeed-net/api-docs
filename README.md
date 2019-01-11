@@ -104,7 +104,7 @@ https://livescorefeedxml.com/api/soccer?key=YOUR_KEY&h2h=GAME_ID
 * Get all tennis game for today
 
 ```
-https://livescorefeedxml.com/api/tennis?key=YOUR_KEY
+https://livescorefeedxml.com/api/tennis?games=all&key=YOUR_KEY
 ```
 
 ## Returned data structure
