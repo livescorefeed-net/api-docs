@@ -423,6 +423,92 @@ If the hash is the same as the one in your database, there is no need to update 
 }
 ```
 
+#### Odds
+
+```
+"odds":
+    {
+       "Bookmaker_BOOKMAKER__NAME":{ 
+          "bookmaker":"BOOKMAKER__NAME",
+          "over_0.5":"1.09",
+          "under_0.5":"5.50",
+          "home":"2.15",
+          "draw":"2.85",
+          "away":"3.10",
+          "over_1.5":"1.55",
+          "under_1.5":"2.20",
+          "home_draw":"1.29",
+          "home_away":"1.29",
+          "draw_away":"1.58",
+          "Both_teams_to_score_yes":"2.20",
+          "Both_teams_to_score_no":"1.55",
+          "over_2.5":"2.60",
+          "under_2.5":"1.40",
+          "over_3.5":"5.25",
+          "under_3.5":"1.11"
+       },
+       "Bookmaker_BOOKMAKER__NAME":{ 
+          "bookmaker":"BOOKMAKER__NAME",
+          "home":"2.27",
+          "draw":"2.90",
+          "away":"3.57",
+          "over_0.5":"1.10",
+          "under_0.5":"5.66",
+          "over_1.5":"1.56",
+          "under_1.5":"2.39",
+          "home_minus_2.5_minus_3":"13.83",
+          "away_minus_2.5_minus_3":"1.02",
+          "home_draw":"1.31",
+          "home_away":"1.45",
+          "draw_away":"1.66",
+          "home_minus_2.5":"13.83",
+          "away_minus_2.5":"1.05",
+          "home_minus_2_minus_2.5":"13.01",
+          "away_minus_2_minus_2.5":"1.06",
+          "home_minus_2":"12.18",
+          "away_minus_2":"1.06",
+          "home_minus_1.5_minus_2":"7.07",
+          "away_minus_1.5_minus_2":"1.12",
+          "over_2.5":"2.67",
+          "under_2.5":"1.46",
+          "home_minus_1.5":"5.09",
+          "away_minus_1.5":"1.18",
+          "home_minus_1_minus_1.5":"4.49",
+          "away_minus_1_minus_1.5":"1.22",
+          "home_minus_1":"3.91",
+          "away_minus_1":"1.27",
+          "over_3.5":"5.18",
+          "under_3.5":"1.11",
+          "home_minus_0.5_minus_1":"2.79",
+          "away_minus_0.5_minus_1":"1.46",
+          "over_4.5":"12.40",
+          "under_4.5":"1.06",
+          "home_minus_0.5":"2.28",
+          "away_minus_0.5":"1.66",
+          "over_5.5":"12.40",
+          "under_5.5":"1.01",
+          "home_0_minus_0.5":"1.92",
+          "away_0_minus_0.5":"1.90",
+          "home_0":"1.56",
+          "away_0":"2.45",
+          "home_0_0.5":"1.41",
+          "away_0_0.5":"3.02",
+          "home_plus_0.5":"1.31",
+          "away_plus_0.5":"3.59",
+          "home_0.5_1":"1.20",
+          "away_0.5_1":"4.88",
+          "home_plus_1":"1.09",
+          "away_plus_1":"8.61",
+          "home_1_1.5":"1.08",
+          "away_1_1.5":"9.52",
+          "home_plus_1.5":"1.07",
+          "away_plus_1.5":"10.23",
+          "home_1.5_2":"1.04",
+          "away_1.5_2":"10.43"
+       }, ...
+    }
+```
+
 ### Time zones
 
 The table below shows the possible values of the ```timezone_id``` parameter.
